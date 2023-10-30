@@ -1,0 +1,8 @@
+Controller\TelaIndexController.class
+Model\DAO.class
+Model\Clientes.class
+module-info.class
+Model\Usuarios.class
+com\mycompany\projetoacademia\App.class
+Controller\TelaLoginController.class
+com\mycompany\projetoacademia\SystemInfo.class
