@@ -96,10 +96,15 @@ public class TelaLoginController implements Initializable {
                     alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Erro");
                     alert.setHeaderText(null);
-                    alert.setContentText("Nome ou/e senha Invalidos");
+                    alert.setContentText("Login ou/e senha Invalidos");
                     alert.showAndWait();
                 }
             } else {
+                    alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Erro");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Login ou/e senha Invalidos");
+                    alert.showAndWait();
                         
             }
             
