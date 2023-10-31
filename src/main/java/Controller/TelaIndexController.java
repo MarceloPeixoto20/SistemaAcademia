@@ -28,6 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.cell.*;
 import javafx.stage.Stage;
 
@@ -49,8 +50,11 @@ public class TelaIndexController implements Initializable {
     @FXML
     private Button btnCadastrar;
     @FXML
-    private TextField txtPesquisa;
-       
+    private Button btnEditar;
+    @FXML
+    private Button btnExcluir;
+    @FXML
+    private TextField txtPesquisa;     
     
     private Connection conexao;
     private PreparedStatement pst;
@@ -63,7 +67,7 @@ public class TelaIndexController implements Initializable {
     private Stage stage;
     private Stage stage1;
     private Scene scene;
-    private Parent root;
+    private Parent root;    
     
     @FXML
     private TableColumn<Clientes, String> addCliente_col_CPF;
@@ -88,6 +92,9 @@ public class TelaIndexController implements Initializable {
         addlistar();
         stage = new Stage();
         stage1 = new Stage();
+        btnEditar.setDisable(true);
+        btnExcluir.setDisable(true);
+        
         
     }
 
@@ -126,10 +133,67 @@ public class TelaIndexController implements Initializable {
         tblTabelaAlunos.setItems(addLista);
     }
     
-    public void SelecionarCliente(){
-        Clientes cliente = tblTabelaAlunos.getSelectionModel().getSelectedItem();
+    public Clientes SelecionarCliente(){
+        btnEditar.setDisable(false);
+        btnExcluir.setDisable(false);
+        return tblTabelaAlunos.getSelectionModel().getSelectedItem();
         
     }
+    
+    public void editar(ActionEvent event){
+        Clientes Cliente = SelecionarCliente();
+        if (clientes != null) {
+            try {
+                URL url = new File("src/main/java/com/mycompany/projetoacademia/TelaEditar.fxml").toURI().toURL();                
+                FXMLLoader loader = new FXMLLoader(url);
+                root = loader.load();               
+                TelaEditarController Editar = new TelaEditarController();
+                Editar = loader.getController();                
+                Editar.Inicializardados(Cliente);                
+                Scene telaEditar = new Scene(root);
+                stage = (Stage) btnAlunos.getScene().getWindow();              
+                stage1.setScene(telaEditar);
+                stage1.show();
+                stage.close();                
+            } catch (Exception e) {
+                e.printStackTrace();            
+            }            
+            
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(null);
+            alert.setContentText("Selecione um cliente para editar.");
+            alert.showAndWait();
+        }
+        
+    }
+    
+    public void Excluir(ActionEvent event){
+        clientes = SelecionarCliente();
+        try {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmaçao");
+            alert.setHeaderText(null);
+            alert.setContentText("Voce tem certeza que dejesa Excluir "+clientes.getNome()+"?");
+            ButtonType buttonTypeOK = new ButtonType("Sim");
+            ButtonType buttonTypeCancel = new ButtonType("Cancelar", ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(buttonTypeOK, buttonTypeCancel);
+            ButtonType resultado = alert.showAndWait().orElse(ButtonType.CANCEL);            
+            if(resultado==buttonTypeOK){
+                addLista.remove(clientes);
+                dao.deletarclientes(clientes);
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Exito");
+                alert.setHeaderText(null);
+                alert.setContentText("Deletado");
+                alert.showAndWait();
+            }else{                
+            }
+        } catch (Exception e) {
+        }
+    }
+    
     
     public void Cadastrar(ActionEvent event){
         try {

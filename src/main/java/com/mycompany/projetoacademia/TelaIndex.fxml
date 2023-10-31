@@ -58,7 +58,7 @@
       </Label>
       <Pane layoutX="125.0" layoutY="78.0" prefHeight="534.0" prefWidth="749.0">
          <children>
-            <TableView fx:id="tblTabelaAlunos" layoutY="47.0" prefHeight="439.0" prefWidth="749.0">
+            <TableView fx:id="tblTabelaAlunos" layoutY="47.0" onMouseClicked="#SelecionarCliente" prefHeight="439.0" prefWidth="749.0">
                <columns>
                   <TableColumn fx:id="addCliente_col_CPF" prefWidth="94.0" text="CPF" />
                   <TableColumn fx:id="addCliente_col_Nome" prefWidth="73.0" text="Nome" />
@@ -70,6 +70,8 @@
                </columns></TableView>
             <TextField fx:id="txtPesquisa" layoutX="14.0" layoutY="7.0" prefHeight="36.0" prefWidth="228.0" text="Digite o Nome do aluno" />
             <Button fx:id="btnCadastrar" layoutX="634.0" layoutY="13.0" mnemonicParsing="false" onAction="#Cadastrar" text="Adicionar Aluno" />
+            <Button fx:id="btnEditar" layoutX="539.0" layoutY="13.0" mnemonicParsing="false" onAction="#editar" text="Alterar Aluno" />
+            <Button fx:id="btnExcluir" layoutX="447.0" layoutY="13.0" mnemonicParsing="false" onAction="#Excluir" text="Excluir Aluno" />
          </children>
       </Pane>
    </children>

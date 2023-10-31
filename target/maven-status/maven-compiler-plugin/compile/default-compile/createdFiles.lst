@@ -5,5 +5,6 @@ Model\Clientes.class
 module-info.class
 Model\Usuarios.class
 com\mycompany\projetoacademia\App.class
+Controller\TelaEditarController.class
 Controller\TelaLoginController.class
 com\mycompany\projetoacademia\SystemInfo.class
