@@ -1,5 +1,6 @@
 Controller\TelaIndexController.class
 Model\DAO.class
+Controller\TelaCadastroController.class
 Model\Clientes.class
 module-info.class
 Model\Usuarios.class

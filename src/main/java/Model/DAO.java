@@ -6,6 +6,7 @@ package Model;
 
 import java.sql.*;
 import java.util.ArrayList;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -44,13 +45,34 @@ public class DAO {
             pst.setDate(7, (Date) clientes.getDataVencimento());
             pst.executeUpdate();
             con.close();
-        } catch (Exception e) {
-            System.out.println(e);
+        }catch(SQLIntegrityConstraintViolationException e){
+                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText(null);
+                alert.setContentText("CPF ja cadastrado");
+                alert.showAndWait();
+                return;
+        }catch(SQLException e){
+                e.printStackTrace();                
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText(null);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+                return;        
+        }catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
     public ArrayList<Clientes> listarclientes() {
-        String read = "SELECT CPF, Nome, TelefoneZap, TelefoneEme, Rua, Bairro, DATE_FORMAT(DataVencimento, '%d/%m/%Y') AS DataVencimentoFormatada FROM clientes ORDER BY Nome";
+        String read = "SELECT * FROM clientes ORDER BY Nome";
         Clientes.clear();
         try {
             Connection con = conector();
