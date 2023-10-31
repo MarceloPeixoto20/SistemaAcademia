@@ -153,5 +153,23 @@ public class DAO {
             System.out.println(e);
         }
     }
+    
+    public int Totalclientes(){
+        String total = "SELECT COUNT(CPF) as qtd FROM clientes";
+        ResultSet rs = null;
+        int qtd = 0;
+        try {
+            Connection con = conector();
+            PreparedStatement pst = con.prepareStatement(total);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                qtd = rs.getInt("qtd");                
+            }
+            con.close();            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return qtd;
+    }
 
 }

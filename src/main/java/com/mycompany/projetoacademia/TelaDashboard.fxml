@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="611.0" prefWidth="871.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TelaDashboardController">
+   <stylesheets>
+      <URL value="@telaindex.css" />
+   </stylesheets>
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="-7.0" prefHeight="611.0" prefWidth="140.0" spacing="70.0">
+         <children>
+            <ImageView fitHeight="126.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Imagens/146752676_1547831568720708_205991375742573976_n.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnDashboard" mnemonicParsing="false" prefHeight="44.0" prefWidth="119.0" text="Dashboard">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAlunos" mnemonicParsing="false" onAction="#Alunos" prefHeight="44.0" prefWidth="119.0" text="Alunos">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnProfessores" mnemonicParsing="false" prefHeight="44.0" prefWidth="119.0" text="Professores">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSair" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sair" prefHeight="44.0" prefWidth="119.0" text="Sair">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <Label layoutX="208.0" layoutY="35.0" text="Alunos">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="655.0" layoutY="35.0" text="Professores">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="151.0" layoutY="62.0" prefHeight="193.0" prefWidth="676.0">
+         <children>
+            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="100.0" prefWidth="178.0">
+               <children>
+                  <Label layoutX="26.0" layoutY="65.0" text="Total de Clientes">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTotalClientes" alignment="CENTER_RIGHT" layoutX="33.0" layoutY="29.0" prefHeight="21.0" prefWidth="119.0" text="0">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="44.0" fitWidth="62.0" layoutX="26.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Imagens/Pessoas.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="464.0" layoutY="14.0" prefHeight="100.0" prefWidth="178.0">
+               <children>
+                  <Label layoutX="26.0" layoutY="65.0" text="Total de Professores">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTotalProfessores" alignment="CENTER_RIGHT" layoutX="60.0" layoutY="29.0" prefHeight="21.0" prefWidth="119.0" text="0">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="44.0" fitWidth="62.0" layoutX="26.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Imagens/Pessoas.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

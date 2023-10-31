@@ -26,7 +26,7 @@
                   <Image url="@../../../Imagens/146752676_1547831568720708_205991375742573976_n.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="btnDashboard" mnemonicParsing="false" prefHeight="44.0" prefWidth="119.0" text="Dashboard">
+            <Button fx:id="btnDashboard" mnemonicParsing="false" onAction="#Dashboard" prefHeight="44.0" prefWidth="119.0" text="Dashboard">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>

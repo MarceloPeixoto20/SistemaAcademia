@@ -85,7 +85,7 @@ public class TelaLoginController implements Initializable {
             rs = pst.executeQuery(); 
             if (rs.next()) {
                 if(rs != null){                
-                    URL url = new File("src/main/java/com/mycompany/projetoacademia/TelaIndex.fxml").toURI().toURL();
+                    URL url = new File("src/main/java/com/mycompany/projetoacademia/TelaDashboard.fxml").toURI().toURL();
                     root = FXMLLoader.load(url);
                     Scene telalogin = new Scene(root);
                     stage = (Stage) btnLogin.getScene().getWindow();                

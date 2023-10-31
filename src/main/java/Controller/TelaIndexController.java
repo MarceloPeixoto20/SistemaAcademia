@@ -102,6 +102,20 @@ public class TelaIndexController implements Initializable {
         System.exit(0);
     }
     
+    public void Dashboard(){
+        try {
+            URL url = new File("src/main/java/com/mycompany/projetoacademia/TelaDashboard.fxml").toURI().toURL();
+            root = FXMLLoader.load(url);
+            Scene telalogin = new Scene(root);
+            stage = (Stage) btnAlunos.getScene().getWindow();                
+            stage1.setScene(telalogin);
+            stage1.show();
+            stage.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public ObservableList<Clientes> listar(){
         ObservableList<Clientes> data = FXCollections.observableArrayList();
         try {
