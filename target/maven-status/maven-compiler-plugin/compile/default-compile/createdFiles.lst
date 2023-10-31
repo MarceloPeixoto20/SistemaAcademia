@@ -2,7 +2,6 @@ Controller\TelaIndexController.class
 Model\DAO.class
 Controller\TelaCadastroController.class
 Model\Clientes.class
-module-info.class
 Controller\TelaDashboardController.class
 Model\Usuarios.class
 com\mycompany\projetoacademia\App.class

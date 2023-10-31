@@ -6,6 +6,7 @@ package Controller;
 
 import Model.Clientes;
 import Model.DAO;
+import static Model.DAO.conector;
 import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
@@ -30,6 +31,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.cell.*;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
@@ -94,8 +96,26 @@ public class TelaIndexController implements Initializable {
         stage1 = new Stage();
         btnEditar.setDisable(true);
         btnExcluir.setDisable(true);
-        
-        
+        txtPesquisa.setOnMouseClicked(event -> {
+            
+            if(txtPesquisa.equals("Digite o Nome do aluno")){
+                txtPesquisa.clear();
+            }
+        });
+        txtPesquisa.setOnKeyReleased(event ->{            
+            String searchTerm = txtPesquisa.getText().toLowerCase().trim();            
+            List<Clientes> resultados = new ArrayList<>();
+            // Percorra o seu modelo de dados e adicione os itens correspondentes à lista de resultados
+            for (Clientes item : addLista) {
+                if (item.getNome().toLowerCase().contains(searchTerm)) {
+                    resultados.add(item);
+                }
+            }
+
+            // Crie um ObservableList a partir dos resultados da pesquisa e defina-o na TableView
+            ObservableList<Clientes> observableResultados = FXCollections.observableArrayList(resultados);
+            tblTabelaAlunos.setItems(observableResultados);
+            });
     }
 
     public void sair(){
@@ -153,7 +173,7 @@ public class TelaIndexController implements Initializable {
         return tblTabelaAlunos.getSelectionModel().getSelectedItem();
         
     }
-    
+      
     public void editar(ActionEvent event){
         Clientes Cliente = SelecionarCliente();
         if (clientes != null) {

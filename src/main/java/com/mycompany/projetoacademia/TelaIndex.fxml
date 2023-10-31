@@ -10,7 +10,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -56,9 +55,9 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <Pane layoutX="125.0" layoutY="78.0" prefHeight="534.0" prefWidth="749.0">
+      <AnchorPane layoutX="125.0" layoutY="80.0" prefHeight="525.0" prefWidth="749.0">
          <children>
-            <TableView fx:id="tblTabelaAlunos" layoutY="47.0" onMouseClicked="#SelecionarCliente" prefHeight="439.0" prefWidth="749.0">
+            <TableView fx:id="tblTabelaAlunos" layoutY="72.0" onMouseClicked="#SelecionarCliente" prefHeight="439.0" prefWidth="749.0">
                <columns>
                   <TableColumn fx:id="addCliente_col_CPF" prefWidth="94.0" text="CPF" />
                   <TableColumn fx:id="addCliente_col_Nome" prefWidth="73.0" text="Nome" />
@@ -68,11 +67,11 @@
                   <TableColumn fx:id="addCliente_col_Bairro" prefWidth="95.0" text="Bairro" />
                   <TableColumn fx:id="addCliente_col_Dataven" prefWidth="112.0" text="Data Vencimento" />
                </columns></TableView>
-            <TextField fx:id="txtPesquisa" layoutX="14.0" layoutY="7.0" prefHeight="36.0" prefWidth="228.0" text="Digite o Nome do aluno" />
-            <Button fx:id="btnCadastrar" layoutX="634.0" layoutY="13.0" mnemonicParsing="false" onAction="#Cadastrar" text="Adicionar Aluno" />
-            <Button fx:id="btnEditar" layoutX="539.0" layoutY="13.0" mnemonicParsing="false" onAction="#editar" text="Alterar Aluno" />
-            <Button fx:id="btnExcluir" layoutX="447.0" layoutY="13.0" mnemonicParsing="false" onAction="#Excluir" text="Excluir Aluno" />
+            <TextField fx:id="txtPesquisa" layoutX="14.0" layoutY="20.0" prefHeight="36.0" prefWidth="228.0" text="Digite o Nome do aluno" />
+            <Button fx:id="btnCadastrar" layoutX="640.0" layoutY="25.0" mnemonicParsing="false" onAction="#Cadastrar" text="Adicionar Aluno" />
+            <Button fx:id="btnEditar" layoutX="548.0" layoutY="25.0" mnemonicParsing="false" onAction="#editar" text="Alterar Aluno" />
+            <Button fx:id="btnExcluir" layoutX="457.0" layoutY="25.0" mnemonicParsing="false" onAction="#Excluir" text="Excluir Aluno" />
          </children>
-      </Pane>
+      </AnchorPane>
    </children>
 </AnchorPane>
