@@ -1,0 +1,4 @@
+--patch-module
+com.mycompany.projetoacademia=_
+--add-reads
+com.mycompany.projetoacademia=ALL-UNNAMED

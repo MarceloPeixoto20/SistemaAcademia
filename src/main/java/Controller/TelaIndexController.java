@@ -96,11 +96,8 @@ public class TelaIndexController implements Initializable {
         stage1 = new Stage();
         btnEditar.setDisable(true);
         btnExcluir.setDisable(true);
-        txtPesquisa.setOnMouseClicked(event -> {
-            
-            if(txtPesquisa.equals("Digite o Nome do aluno")){
-                txtPesquisa.clear();
-            }
+        txtPesquisa.setOnMouseClicked(event -> {            
+            txtPesquisa.clear();
         });
         txtPesquisa.setOnKeyReleased(event ->{            
             String searchTerm = txtPesquisa.getText().toLowerCase().trim();            

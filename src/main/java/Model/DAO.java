@@ -17,7 +17,7 @@ public class DAO {
     public static Connection conector() {
         String url = "jdbc:mysql://localhost:3306/projetoacademia";
         String user = "root";
-        String password = "jana90le.";
+        String password = "";
 
         try {
             Connection conexao = DriverManager.getConnection(url, user, password);
